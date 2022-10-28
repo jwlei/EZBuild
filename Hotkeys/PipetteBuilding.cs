@@ -4,9 +4,9 @@ namespace EZBuild {
 	using System.Reflection;
 	using UnityEngine;
 
-	public partial class PlayerHotkeyPatch {
+	public partial class PatchHotkey {
 
-		private static void QuickSelectBuild(Player player) {
+		private static void PipetteBuilding(Player player) {
 			if (!player.InPlaceMode() && Hud.IsPieceSelectionVisible()) {
 				return;
 			}

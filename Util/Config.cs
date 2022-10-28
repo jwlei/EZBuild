@@ -64,8 +64,6 @@
 		}
 
 
-        // Translation
-		// To do
 
 
 

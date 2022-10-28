@@ -1,9 +1,9 @@
 namespace EZBuild
 {
-    public partial class PlayerHotkeyPatch
+    public partial class PatchHotkey
     {
 
-		private static void EZRepair(Player player) {
+		private static void RepairHighlighted(Player player) {
 
 			if (Hud.IsPieceSelectionVisible()) {
 				return;

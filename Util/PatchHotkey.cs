@@ -5,7 +5,7 @@ namespace EZBuild {
 	using UnityEngine;
 
 	[HarmonyPatch]
-	public partial class PlayerHotkeyPatch : BaseUnityPlugin {
+	public partial class PatchHotkey : BaseUnityPlugin {
 
 		private static bool m_stopAutorun = false;
 
@@ -20,11 +20,11 @@ namespace EZBuild {
 			}
 			if (Input.GetKeyDown(EZBuild.EZAxeHotkey.Value.MainKey) && __instance.GetHoverObject() != null)
 			{
-				PlayerHotkeyPatch.EZAxe(__instance);
+				PatchHotkey.ItemAxe(__instance);
 			}
 			if (Input.GetKeyDown(EZBuild.EZPickaxeHotkey.Value.MainKey) && __instance.GetHoverObject() != null)
 			{
-				PlayerHotkeyPatch.EZPickaxe(__instance);
+				PatchHotkey.EZPickaxe(__instance);
 			}
 			return true;
 		}
@@ -38,17 +38,17 @@ namespace EZBuild {
 			}
 
 			if (Input.GetKeyDown(EZBuild.EZRepairHotkey.Value.MainKey)) {
-				PlayerHotkeyPatch.EZRepair(__instance);
+				PatchHotkey.RepairHighlighted(__instance);
 				return;
 			}
 
 			if (Input.GetKeyDown(EZBuild.EZPipetteHotkey.Value.MainKey)) {
-				PlayerHotkeyPatch.QuickSelectBuild(__instance);
+				PatchHotkey.PipetteBuilding(__instance);
 				return;
 			}
 			if (Input.GetKeyDown(EZBuild.EZHammerHotkey.Value.MainKey))
 			{
-				PlayerHotkeyPatch.EZHammer(__instance);
+				PatchHotkey.EZHammer(__instance);
 				return;
 			}
 		}
@@ -56,9 +56,9 @@ namespace EZBuild {
 		[HarmonyPostfix]
 		[HarmonyPatch(typeof(PlayerController), "FixedUpdate")]
 		private static void Postfix_FixedUpdate() {
-			if (PlayerHotkeyPatch.m_stopAutorun) {
+			if (PatchHotkey.m_stopAutorun) {
 				Player.m_localPlayer.m_autoRun = false;
-				PlayerHotkeyPatch.m_stopAutorun = false;
+				PatchHotkey.m_stopAutorun = false;
 			}
 		}
 	}

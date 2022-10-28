@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EZBuild {
 
-	public partial class PlayerHotkeyPatch {
+	public partial class PatchHotkey {
 		private static MethodInfo InPlaceModeRef = AccessTools.Method(typeof(Character), "InPlaceMode", null, null);
 
 		[HarmonyPostfix]
@@ -25,7 +25,7 @@ namespace EZBuild {
 			}
 			List<CodeInstruction> list = Enumerable.ToList<CodeInstruction>(instructions);
 			for (int i = 0; i < list.Count; i++) {
-				if (list[i].Calls(PlayerHotkeyPatch.InPlaceModeRef)) {
+				if (list[i].Calls(PatchHotkey.InPlaceModeRef)) {
 					list[i - 1].opcode = OpCodes.Nop;
 					list[i] = new CodeInstruction(OpCodes.Ldc_I4_0, null);
 				}

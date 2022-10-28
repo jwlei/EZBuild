@@ -5,7 +5,7 @@
 	using System.Linq;
 	using System.Collections.Generic;
 
-	public partial class PlayerHotkeyPatch
+	public partial class PatchHotkey
 	{
 		public static string[] pickaxeCompareTexts = new string[]
 			{"Rock", "Tin deposit", "Muddy scrap pile", "Copper deposit", "Obsidian deposit", "Silver vein", "Guck Sack"};
@@ -38,7 +38,7 @@
 				{
 					int maxTier = durablePickaxes.Max(pick => pick.m_shared.m_toolTier);
 					List<ItemDrop.ItemData> topTierPickaxes = durablePickaxes.Where(pick => pick.m_shared.m_toolTier == maxTier).ToList();
-					topTierPickaxes.Sort(new DurabilityComparer());
+					topTierPickaxes.Sort(new CompareDurability());
 					if (topTierPickaxes.Count > 0)
 					{
 						player.QueueUnequipItem(player.m_rightItem);

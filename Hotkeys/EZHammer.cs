@@ -4,7 +4,7 @@ namespace EZBuild
 	using System;
 	using System.Collections.Generic;
 
-	public partial class PlayerHotkeyPatch
+	public partial class PatchHotkey
 	{
 		private static void EZHammer(Player player)
 		{
@@ -25,7 +25,7 @@ namespace EZBuild
 
 			Predicate<ItemDrop.ItemData> isHammer = delegate (ItemDrop.ItemData item) { return item.m_shared.m_name == "$item_hammer"; };
 			List<ItemDrop.ItemData> hammers = player.m_inventory.m_inventory.FindAll(isHammer);
-			hammers.Sort(new DurabilityComparer());
+			hammers.Sort(new CompareDurability());
 			if (hammers.Count > 0)
 			{
 				player.QueueEquipItem(hammers[0]);

@@ -82,13 +82,13 @@
     <Compile Include="Hotkeys\EZPickaxe.cs" />
     <Compile Include="Hotkeys\EZHammer.cs" />
     <Compile Include="Hotkeys\EZAxe.cs" />
-    <Compile Include="Hotkeys\EZRepair.cs" />
-    <Compile Include="Hotkeys\EZPipette.cs" />
-    <Compile Include="InteractWhileBuild.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="PlayerHotkeyPatch.cs" />
+    <Compile Include="Hotkeys\RepairSelected.cs" />
+    <Compile Include="Hotkeys\PipetteBuilding.cs" />
+    <Compile Include="Util\InteractWhileBuild.cs" />
+    <Compile Include="Util\Config.cs" />
+    <Compile Include="Util\PatchHotkey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\durabilityComparer.cs" />
+    <Compile Include="Util\CompareDurability.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

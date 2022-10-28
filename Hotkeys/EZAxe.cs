@@ -6,13 +6,13 @@
     using UnityEngine;
     using System.Linq;
 
-    public partial class PlayerHotkeyPatch
+    public partial class PatchHotkey
     {
         public static string[] axeCompareTexts =
-            {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack" };      //ENGLISH
+            {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack" };
 
 
-        private static bool EZAxe(Player player)
+        private static bool ItemAxe(Player player)
         {
             GameObject hoverObject = player.GetHoverObject();
             Hoverable hoverable = (hoverObject ? hoverObject.GetComponentInParent<Hoverable>() : null);
@@ -52,7 +52,7 @@
                 {
                     int maxTier = durableAxes.Max(axe => axe.m_shared.m_toolTier);
                     List<ItemDrop.ItemData> topTierAxes = durableAxes.Where(axe => axe.m_shared.m_toolTier == maxTier).ToList();
-                    topTierAxes.Sort(new DurabilityComparer());
+                    topTierAxes.Sort(new CompareDurability());
                     if (topTierAxes.Count > 0)
                     {
                         player.QueueUnequipItem(player.m_rightItem);
@@ -62,7 +62,7 @@
                 } else if (durableBattleaxe.Count > 0) {
                     int maxTier = durableBattleaxe.Max(Battleaxe => Battleaxe.m_shared.m_toolTier);
                     List<ItemDrop.ItemData> topTierBattleaxes = durableBattleaxe.Where(Battleaxe => Battleaxe.m_shared.m_toolTier == maxTier).ToList();
-                    topTierBattleaxes.Sort(new DurabilityComparer());
+                    topTierBattleaxes.Sort(new CompareDurability());
                     if (topTierBattleaxes.Count > 0)
                     {
                         player.QueueUnequipItem(player.m_rightItem);
