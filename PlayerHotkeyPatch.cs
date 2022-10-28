@@ -2,7 +2,6 @@ namespace EZBuild {
 
 	using BepInEx;
 	using HarmonyLib;
-	using System;
 	using UnityEngine;
 
 	[HarmonyPatch]
