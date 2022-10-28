@@ -20,11 +20,11 @@ namespace EZBuild {
 			}
 			if (Input.GetKeyDown(EZBuild.EZAxeHotkey.Value.MainKey) && __instance.GetHoverObject() != null)
 			{
-				PatchHotkey.ItemAxe(__instance);
+				PatchHotkey.Pipette_Axe(__instance);
 			}
 			if (Input.GetKeyDown(EZBuild.EZPickaxeHotkey.Value.MainKey) && __instance.GetHoverObject() != null)
 			{
-				PatchHotkey.EZPickaxe(__instance);
+				PatchHotkey.Pipette_Pickaxe(__instance);
 			}
 			return true;
 		}
@@ -43,12 +43,12 @@ namespace EZBuild {
 			}
 
 			if (Input.GetKeyDown(EZBuild.EZPipetteHotkey.Value.MainKey)) {
-				PatchHotkey.PipetteBuilding(__instance);
+				PatchHotkey.Pipette_Building(__instance);
 				return;
 			}
 			if (Input.GetKeyDown(EZBuild.EZHammerHotkey.Value.MainKey))
 			{
-				PatchHotkey.EZHammer(__instance);
+				PatchHotkey.Equip_Hammer(__instance);
 				return;
 			}
 		}

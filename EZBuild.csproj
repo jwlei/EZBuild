@@ -79,12 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EZBuild.cs" />
-    <Compile Include="Hotkeys\EZPickaxe.cs" />
-    <Compile Include="Hotkeys\EZHammer.cs" />
-    <Compile Include="Hotkeys\EZAxe.cs" />
-    <Compile Include="Hotkeys\RepairSelected.cs" />
-    <Compile Include="Hotkeys\PipetteBuilding.cs" />
-    <Compile Include="Util\InteractWhileBuild.cs" />
+    <Compile Include="Hammer\EquipHammer.cs" />
+    <Compile Include="Hammer\RepairHighlighted.cs" />
+    <Compile Include="Pipette\PipettePickaxe.cs" />
+    <Compile Include="Pipette\PipetteAxe.cs" />
+    <Compile Include="Pipette\PipetteBuilding.cs" />
+    <Compile Include="Hammer\InteractWhileBuild.cs" />
     <Compile Include="Util\Config.cs" />
     <Compile Include="Util\PatchHotkey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

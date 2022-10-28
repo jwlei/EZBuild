@@ -6,7 +6,7 @@ namespace EZBuild
 
 	public partial class PatchHotkey
 	{
-		private static void EZHammer(Player player)
+		private static void Equip_Hammer(Player player)
 		{
 			var rightItem = player.m_rightItem;
 			if (rightItem != null && rightItem.m_shared.m_name == "$item_hammer")

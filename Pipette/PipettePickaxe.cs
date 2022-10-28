@@ -9,7 +9,7 @@
 	{
 		public static string[] pickaxeCompareTexts = new string[]
 			{"Rock", "Tin deposit", "Muddy scrap pile", "Copper deposit", "Obsidian deposit", "Silver vein", "Guck Sack"};
-		private static bool EZPickaxe(Player player)
+		private static bool Pipette_Pickaxe(Player player)
 		{
 			GameObject hoverObject = player.GetHoverObject();
 			Hoverable hoverable = (hoverObject ? hoverObject.GetComponentInParent<Hoverable>() : null);

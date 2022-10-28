@@ -9,7 +9,7 @@
 	public partial class EZBuild : BaseUnityPlugin {
 		private const string MID = "EZBuild";
 		private const string modName = "EZBuild";
-		private const string pluginVersion = "1.1.4";
+		private const string pluginVersion = "1.1.5";
 
 		void Awake() {
 			var harmony = new Harmony(MID);

@@ -6,7 +6,7 @@ namespace EZBuild {
 
 	public partial class PatchHotkey {
 
-		private static void PipetteBuilding(Player player) {
+		private static void Pipette_Building(Player player) {
 			if (!player.InPlaceMode() && Hud.IsPieceSelectionVisible()) {
 				return;
 			}
