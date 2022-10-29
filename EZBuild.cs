@@ -12,7 +12,7 @@
 		 * Initialization
 		 */
 
-		private const string MID = "EZBuild";
+		private const string MID = "jwlei.EZBuild";
 		private const string modName = "EZ Build and pipette";
 		private const string pluginVersion = "1.1.5";
 
