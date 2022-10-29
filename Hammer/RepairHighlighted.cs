@@ -5,6 +5,10 @@ namespace EZBuild
 
 		private static void RepairHighlighted(Player player) {
 
+			/*
+			 * Repair the highlighted piece
+			 */
+
 			if (Hud.IsPieceSelectionVisible()) {
 				return;
 			}

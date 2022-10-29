@@ -6,26 +6,26 @@
     using UnityEngine;
     using System.Linq;
 
-    public partial class PatchHotkey
-    {
-        public static string[] axeCompareTexts =
-            {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack" };
+    public partial class PatchHotkey {
+
+        // String array for valid targets for the Axe
+        public static string[] axeCompareTexts = {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack" };
 
 
-        private static bool Pipette_Axe(Player player)
-        {
+        private static bool Pipette_Axe(Player player) {
+
             GameObject hoverObject = player.GetHoverObject();
             Hoverable hoverable = (hoverObject ? hoverObject.GetComponentInParent<Hoverable>() : null);
-            if (hoverable == null)
-            {
+            
+            if (hoverable == null) {
                 return true;
             }
+
             string hoverText = hoverable.GetHoverText();
 
             if (Array.Exists(axeCompareTexts, element => element == hoverText)) {
 
-                if (player.m_rightItem != null && (player.m_rightItem.m_shared.m_name.Contains("$item_axe") || player.m_rightItem.m_shared.m_name.Contains("$item_battleaxe")))
-                    {
+                if (player.m_rightItem != null && (player.m_rightItem.m_shared.m_name.Contains("$item_axe") || player.m_rightItem.m_shared.m_name.Contains("$item_battleaxe"))) {
                         player.QueueUnequipItem(player.m_rightItem);
                         return false;
                 }

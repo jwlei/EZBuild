@@ -4,6 +4,10 @@
 
 
 	public class CompareDurability : IComparer<ItemDrop.ItemData> {
+
+		/*
+		 * Simple utility class to compare durability of two items
+		 */
 		
 		int IComparer<ItemDrop.ItemData>.Compare(ItemDrop.ItemData x, ItemDrop.ItemData y)
 		{

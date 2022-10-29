@@ -8,7 +8,9 @@ using UnityEngine;
 namespace EZBuild {
 
 	public partial class PatchHotkey {
+
 		private static MethodInfo InPlaceModeRef = AccessTools.Method(typeof(Character), "InPlaceMode", null, null);
+
 
 		[HarmonyPostfix]
 		[HarmonyPatch(typeof(Hud), "Awake")]
@@ -17,10 +19,11 @@ namespace EZBuild {
 			__instance.m_pieceHealthRoot.localPosition = new Vector3(currentPosition.x, currentPosition.y + 20f, currentPosition.z);
 		}
 
+
 		[HarmonyTranspiler]
 		[HarmonyPatch(typeof(Player), "UpdateHover")]
 		private static IEnumerable<CodeInstruction> Patch(IEnumerable<CodeInstruction> instructions) {
-			if (!EZBuild.interactWhileBuilding.Value) {
+			if (!EZBuild.InteractWithToolEquipped.Value) {
 				return instructions;
 			}
 			List<CodeInstruction> list = Enumerable.ToList<CodeInstruction>(instructions);

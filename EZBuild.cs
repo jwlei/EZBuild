@@ -7,15 +7,20 @@
 	[BepInProcess("valheim.exe")]
 	[BepInProcess("valheim_server.exe")]
 	public partial class EZBuild : BaseUnityPlugin {
+
+		/*
+		 * Initialization
+		 */
+
 		private const string MID = "EZBuild";
-		private const string modName = "EZBuild";
+		private const string modName = "EZ Build and pipette";
 		private const string pluginVersion = "1.1.5";
 
 		void Awake() {
 			var harmony = new Harmony(MID);
 			this.LoadConfig();
 
-			if (!EZBuild.enabledMod.Value) {
+			if (!EZBuild.EnableMod.Value) {
 				Logger.LogInfo(modName + " has been disabled in the mod config");
 				return;
 			}

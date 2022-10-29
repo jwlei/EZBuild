@@ -5,19 +5,23 @@
 	using System.Linq;
 	using System.Collections.Generic;
 
-	public partial class PatchHotkey
-	{
-		public static string[] pickaxeCompareTexts = new string[]
-			{"Rock", "Tin deposit", "Muddy scrap pile", "Copper deposit", "Obsidian deposit", "Silver vein", "Guck Sack"};
-		private static bool Pipette_Pickaxe(Player player)
-		{
+	public partial class PatchHotkey {
+
+
+		// String array for valid targets for the pickaxe
+		public static string[] pickaxeCompareTexts = new string[] {"Rock", "Tin deposit", "Muddy scrap pile", "Copper deposit", "Obsidian deposit", "Silver vein", "Guck Sack"};
+
+
+		private static bool Pipette_Pickaxe(Player player) {
+
 			GameObject hoverObject = player.GetHoverObject();
 			Hoverable hoverable = (hoverObject ? hoverObject.GetComponentInParent<Hoverable>() : null);
-			if (hoverable == null)
-			{
+
+			if (hoverable == null) {
 				return true;
 			}
 			string hoverText = hoverable.GetHoverText();
+
 			if (Array.Exists(pickaxeCompareTexts, element => element == hoverText))
 			{
 				// If the item is equipped, unequip it

@@ -5,87 +5,65 @@
 	using UnityEngine;
 
 	public partial class EZBuild : BaseUnityPlugin {
+		/*
+		 * Class for defining the Configuration manager config menu
+		 */
+
+
 		private static string GENERAL_SETTINGS = "Settings";
 
-		public static ConfigEntry<bool> enabledMod { 
+		public static ConfigEntry<bool> EnableMod { 
 			get;
 			set;
 		}
-		public static ConfigEntry<bool> interactWhileBuilding { 
+		public static ConfigEntry<bool> InteractWithToolEquipped { 
 			get; 
 			set;
 		}
-		public static ConfigEntry<bool> EZPipette
+		public static ConfigEntry<bool> Pipette
 		{
 			get;
 			set;
 		}
-		public static ConfigEntry<KeyboardShortcut> EZPipetteHotkey {
+		public static ConfigEntry<KeyboardShortcut> Pipette_Hotkey {
 			get;
 			set;
 		}
-		public static ConfigEntry<bool> EZAxe
+
+		public static ConfigEntry<bool> Repair
 		{
 			get;
 			set;
 		}
-		public static ConfigEntry<KeyboardShortcut> EZAxeHotkey
-		{
-			get;
-			set;
-		}
-		public static ConfigEntry<bool> EZPickaxe
-		{
-			get;
-			set;
-		}
-		public static ConfigEntry<KeyboardShortcut> EZPickaxeHotkey
-		{
-			get;
-			set;
-		}
-		public static ConfigEntry<bool> EZRepair
-		{
-			get;
-			set;
-		}
-		public static ConfigEntry<KeyboardShortcut> EZRepairHotkey { 
+		public static ConfigEntry<KeyboardShortcut> Repair_Hotkey { 
 			get; 
 			set; 
 		}
-		public static ConfigEntry<bool> EZHammer
+		public static ConfigEntry<bool> Hammer
 		{
 			get;
 			set;
 		}
-		public static ConfigEntry<KeyboardShortcut> EZHammerHotkey { 
+		public static ConfigEntry<KeyboardShortcut> Hammer_Hotkey { 
 			get; 
 			set;
 		}
 
 
+        private void LoadConfig() {
 
+			EnableMod = base.Config.Bind<bool>(GENERAL_SETTINGS, "Enable", true, "Enable EZBuild");
 
+			InteractWithToolEquipped = base.Config.Bind<bool>(GENERAL_SETTINGS, "Enable interaction with items while a tool is equipped", true, "Enables interaction with e.g. chests, ..., workbenches while holding tools");
 
-        private void LoadConfig()
-        {
-			enabledMod = base.Config.Bind<bool>(GENERAL_SETTINGS, "Enable", true, "Enable EZBuild (True/False)");
-			interactWhileBuilding = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
+			Pipette = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Pipette tool");
+			Pipette_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "Pipette hotkey", new KeyboardShortcut(KeyCode.Q), "Pipette tool to copy piece and orientation of the build piece you're pointing at, or equipping the correct tool for the item you're aimed at.");
 
-			EZPipette = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
-			EZPipetteHotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "EZPipetteHotkey", new KeyboardShortcut(KeyCode.Q), "Pipette tool to copy piece and orientation of the build piece you're pointing at.");
+			Repair = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Hotkey for repairing");
+			Repair_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "Repair hotkey", new KeyboardShortcut(KeyCode.V), "With the hammer equipped, press the hotkey to repair the item you are pointing at.");
 
-			EZAxe = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
-			EZAxeHotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "EZAxeHotkey", new KeyboardShortcut(KeyCode.Q), "Equip the axe when pointing at an eligible resource.");
-
-			EZPickaxe = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
-			EZPickaxeHotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "EZPickaxeHotkey", new KeyboardShortcut(KeyCode.Q), "Equip the pickaxe when pointing at an eligible resource.");
-
-			EZRepair = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
-			EZRepairHotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "EZRepairHotkey", new KeyboardShortcut(KeyCode.V), "With the hammer equipped, press the hotkey to repair the item you are pointing at.");
-
-			EZHammer = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Enables interaction while holding tools");
-			EZHammerHotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "EZHammerHotkey", new KeyboardShortcut(KeyCode.B), "Hotkey for equipping Hammer");
+			Hammer = base.Config.Bind<bool>(GENERAL_SETTINGS, "Interact with tool equipped", true, "Hotkey for equipping hammer");
+			Hammer_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS, "Equip hammer hotkey", new KeyboardShortcut(KeyCode.B), "Hotkey for equipping Hammer");
 
 		}
 	}
