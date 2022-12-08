@@ -21,9 +21,11 @@ namespace EZBuild {
 				return true;
 			}
 
+			/*
 			if (!__instance.TakeInput()) {
 				return true;
 			}
+			*/
 
 			// Apply the same hotkey as the pipette to Axe
 			if (Input.GetKeyDown(EZBuild.Pipette_Hotkey.Value.MainKey) && __instance.GetHoverObject() != null) {
@@ -42,10 +44,12 @@ namespace EZBuild {
 		[HarmonyPatch(typeof(Player), "Update")]
 		private static void Postfix_Update(Player __instance) {
 
+			/*
 			// Check correct player
 			if (Player.m_localPlayer != __instance || !__instance.TakeInput()) {
 				return;
 			}
+			*/
 
 			// Pipette
 			if (Input.GetKeyDown(EZBuild.Pipette_Hotkey.Value.MainKey))
@@ -72,7 +76,7 @@ namespace EZBuild {
 		[HarmonyPatch(typeof(PlayerController), "FixedUpdate")]
 		private static void Postfix_FixedUpdate() {
 			if (PatchHotkey.m_stopAutorun) {
-				Player.m_localPlayer.m_autoRun = false;
+				//Player.m_localPlayer.m_autoRun = false;
 				PatchHotkey.m_stopAutorun = false;
 			}
 		}

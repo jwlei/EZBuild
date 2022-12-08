@@ -4,11 +4,12 @@
     using System.Collections.Generic;
     using UnityEngine;
     using System.Linq;
+    using System.Reflection;
 
     public partial class PatchHotkey {
 
         // String array for valid targets for the Axe
-        public static string[] axeCompareTexts = {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack" };
+        public static string[] axeCompareTexts = {"Log", "Stump", "Beech", "Birch", "Oak", "Ancient tree", "Fir", "Pine", "Guck sack", "Yggdrasil Shoot" };
 
 
         private static bool Pipette_Axe(Player player) {
@@ -24,8 +25,8 @@
 
             if (Array.Exists(axeCompareTexts, element => element == hoverText)) {
 
-                if (player.m_rightItem != null && (player.m_rightItem.m_shared.m_name.Contains("$item_axe") || player.m_rightItem.m_shared.m_name.Contains("$item_battleaxe"))) {
-                        player.QueueUnequipItem(player.m_rightItem);
+                if (player.GetRightItem() != null && (player.GetRightItem().m_shared.m_name.Contains("$item_axe") || player.GetRightItem().m_shared.m_name.Contains("$item_battleaxe"))) {
+                        player.UnequipItem(player.GetRightItem());
                         return false;
                 }
  
@@ -38,11 +39,13 @@
                     return item.m_shared.m_name.Contains("$item_battleaxe");
                 };
 
+                List<ItemDrop.ItemData> current_inventory = player.GetInventory().GetAllItems();
+                
 
-                List<ItemDrop.ItemData> axes = player.m_inventory.m_inventory.FindAll(isAxe);
+                List<ItemDrop.ItemData> axes = current_inventory.FindAll(isAxe);
                 List<ItemDrop.ItemData> durableAxes = axes.Where(axe => axe.m_durability != 0).ToList();
 
-                List<ItemDrop.ItemData> battleaxes = player.m_inventory.m_inventory.FindAll(isBattleaxe);
+                List<ItemDrop.ItemData> battleaxes = current_inventory.FindAll(isBattleaxe);
                 List<ItemDrop.ItemData> durableBattleaxe = battleaxes.Where(battleaxe => battleaxe.m_durability != 0).ToList();
 
 
@@ -56,8 +59,12 @@
                         topTierBattleaxes.Sort(new CompareDurability());
 
                         if (topTierBattleaxes.Count > 0) {
-                            player.QueueUnequipItem(player.m_rightItem);
-                            player.QueueEquipItem(topTierBattleaxes[0]);
+                            MethodInfo unequip = typeof(Player).GetMethod("QueueUnequipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            unequip.Invoke(player, new object[] { player.GetRightItem() });
+
+
+                            MethodInfo equip = typeof(Player).GetMethod("QueueEquipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            equip.Invoke(player, new object[] { topTierBattleaxes[0] });
 
                             return false;
                         }
@@ -69,8 +76,12 @@
                         topTierAxes.Sort(new CompareDurability());
 
                         if (topTierAxes.Count > 0) {
-                            player.QueueUnequipItem(player.m_rightItem);
-                            player.QueueEquipItem(topTierAxes[0]);
+                            MethodInfo unequip = typeof(Player).GetMethod("QueueUnequipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            unequip.Invoke(player, new object[] { player.GetRightItem() });
+
+
+                            MethodInfo equip = typeof(Player).GetMethod("QueueEquipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            equip.Invoke(player, new object[] { topTierAxes[0] });
 
                             return false;
                         }
@@ -88,8 +99,12 @@
                         topTierAxes.Sort(new CompareDurability());
 
                         if (topTierAxes.Count > 0) {
-                            player.QueueUnequipItem(player.m_rightItem);
-                            player.QueueEquipItem(topTierAxes[0]);
+                            MethodInfo unequip = typeof(Player).GetMethod("QueueUnequipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            unequip.Invoke(player, new object[] { player.GetRightItem() });
+
+
+                            MethodInfo equip = typeof(Player).GetMethod("QueueEquipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            equip.Invoke(player, new object[] { topTierAxes[0] });
 
                             return false;
                         }
@@ -101,8 +116,12 @@
                         topTierBattleaxes.Sort(new CompareDurability());
 
                         if (topTierBattleaxes.Count > 0) {
-                            player.QueueUnequipItem(player.m_rightItem);
-                            player.QueueEquipItem(topTierBattleaxes[0]);
+                            MethodInfo unequip = typeof(Player).GetMethod("QueueUnequipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            unequip.Invoke(player, new object[] { player.GetRightItem() });
+
+
+                            MethodInfo equip = typeof(Player).GetMethod("QueueEquipAction", BindingFlags.NonPublic | BindingFlags.Instance);
+                            equip.Invoke(player, new object[] { topTierBattleaxes[0] });
 
                             return false;
                         }
