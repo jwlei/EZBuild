@@ -4,4 +4,4 @@ A Valheim mod to improve quality of life while building, and streamlining the to
 
 Nexus:            https://www.nexusmods.com/valheim/mods/1518
 
-Thunderstore.io:  https://valheim.thunderstore.io/package/Taakefyrsten/EzBuild/
+Thunderstore.io:  https://thunderstore.io/c/valheim/p/Taakefyrsten/EzBuild/
