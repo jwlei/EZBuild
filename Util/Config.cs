@@ -89,7 +89,7 @@
                                                 "Hotkey for equipping Hammer");
 
             ScrollPieceSelection_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS,
-                                                "7. Modifier button for scrolling piece selection",
+                                                "7. Modifier for scrolling piece selection",
                                                 new KeyboardShortcut(KeyCode.LeftAlt), "Hold modifier+mouse scroll to iterate over items in the hammer/hoe/cultivator menu");
         }
     }
