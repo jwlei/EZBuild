@@ -15,7 +15,7 @@
 
         private const string MID = "jwlei.EZBuild";
         private const string modName = "EZ Build and pipette";
-        private const string pluginVersion = "2.0.0";
+        private const string pluginVersion = "2.0.1";
 
         private void Awake()
         {

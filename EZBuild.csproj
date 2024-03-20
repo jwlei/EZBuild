@@ -37,13 +37,14 @@
     <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Actions\ScrollingPieceSelection.cs" />
     <Compile Include="EZBuild.cs" />
-    <Compile Include="Hammer\EquipHammer.cs" />
-    <Compile Include="Hammer\RepairHighlighted.cs" />
+    <Compile Include="Actions\EquipHammer.cs" />
+    <Compile Include="Actions\RepairHighlighted.cs" />
     <Compile Include="Pipette\PipettePickaxe.cs" />
     <Compile Include="Pipette\PipetteAxe.cs" />
     <Compile Include="Pipette\PipetteBuilding.cs" />
-    <Compile Include="Hammer\InteractWhileBuild.cs" />
+    <Compile Include="Util\InteractWithTool.cs" />
     <Compile Include="Util\Config.cs" />
     <Compile Include="Util\PatchHotkey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

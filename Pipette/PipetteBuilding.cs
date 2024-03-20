@@ -28,7 +28,7 @@ namespace EZBuild
 
             for (int y = 0; y < availablePiecesInCategoryLength && !objectFound; ++y)
             {
-                Piece elem = currentPieceTable.GetPiece((int)category, new Vector2Int(y % 13, y / 13));
+                Piece elem = currentPieceTable.GetPiece((int)category, new Vector2Int(y % 15, y / 15));
 
                 if (elem.m_icon.name == currentHoverPiece.m_icon.name)
                 {
@@ -36,7 +36,7 @@ namespace EZBuild
 
                     currentPieceTable.SetCategory((int)elem.m_category);
 
-                    player.SetSelectedPiece(new Vector2Int(y % 13, y / 13));
+                    player.SetSelectedPiece(new Vector2Int(y % 15, y / 15));
 
                     player.m_placeRotation = (int)(Math.Round(currentHoverPiece.transform.localRotation.eulerAngles.y / 22.5f));
 
