@@ -15,14 +15,14 @@
 
         private const string MID = "jwlei.EZBuild";
         private const string modName = "EZ Build and pipette";
-        private const string pluginVersion = "2.0.1";
+        private const string pluginVersion = "2.1.0";
 
         private void Awake()
         {
             var harmony = new Harmony(MID);
             this.LoadConfig();
 
-            if (!EZBuild.EnableMod.Value)
+            if (!EnableMod.Value)
             {
                 Logger.LogInfo(modName + " has been disabled in the mod config");
                 return;

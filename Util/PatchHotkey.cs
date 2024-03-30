@@ -30,13 +30,13 @@ namespace EZBuild
             // Apply the same hotkey as the pipette to Axe
             if (Input.GetKeyDown(EZBuild.Pipette_Hotkey.Value.MainKey) && __instance.GetHoverObject() != null)
             {
-                PatchHotkey.Pipette_Axe(__instance);
+                Pipette_Axe(__instance);
             }
 
             // Apply the same hotkey as the pipette to Pickaxe
             if (Input.GetKeyDown(EZBuild.Pipette_Hotkey.Value.MainKey) && __instance.GetHoverObject() != null)
             {
-                PatchHotkey.Pipette_Pickaxe(__instance);
+                Pipette_Pickaxe(__instance);
             }
 
             return true;
@@ -55,28 +55,35 @@ namespace EZBuild
             // Scroll piece selection
             if (__instance.InPlaceMode() && Input.GetKey(EZBuild.ScrollPieceSelection_Hotkey.Value.MainKey) && Input.mouseScrollDelta.y != 0.0)
             {
-                PatchHotkey.ScrollPieceSelection(__instance);
+                ScrollPieceSelection(__instance);
                 return;
             }
 
             // Pipette
             if (Input.GetKeyDown(EZBuild.Pipette_Hotkey.Value.MainKey))
             {
-                PatchHotkey.Pipette_Building(__instance);
+                Pipette_Building(__instance);
                 return;
             }
 
             // Repair
             if (Input.GetKeyDown(EZBuild.Repair_Hotkey.Value.MainKey))
             {
-                PatchHotkey.RepairHighlighted(__instance);
+                RepairHighlighted(__instance);
                 return;
             }
 
             // Hammer
             if (Input.GetKeyDown(EZBuild.Hammer_Hotkey.Value.MainKey))
             {
-                PatchHotkey.Equip_Hammer(__instance);
+                Equip_Hammer(__instance);
+                return;
+            }
+
+            // Scroll snap point selection
+            if (__instance.InPlaceMode() && Input.GetKey(EZBuild.ScrollingSnapPointSelectionModifier.Value.MainKey) && Input.mouseScrollDelta.y != 0.0)
+            {
+                ScrollSnapPointSelection(__instance);
                 return;
             }
         }
@@ -85,10 +92,10 @@ namespace EZBuild
         [HarmonyPatch(typeof(PlayerController), "FixedUpdate")]
         private static void Postfix_FixedUpdate()
         {
-            if (PatchHotkey.m_stopAutorun)
+            if (m_stopAutorun)
             {
                 Player.m_localPlayer.m_autoRun = false;
-                PatchHotkey.m_stopAutorun = false;
+                m_stopAutorun = false;
             }
         }
     }
