@@ -26,10 +26,10 @@ namespace EZBuild
             // Make sure the new X does not overflow/underflow
             if (newX < 0)
             {
-                newX = 9;
+                newX = 14;
                 newY = currentIndex.y - 1;
             }
-            else if (newX > 9)
+            else if (newX > 14)
             {
                 newX = 0;
                 newY = currentIndex.y + 1;
@@ -41,10 +41,10 @@ namespace EZBuild
             {
                 player.m_buildPieces.PrevCategory();
                 amount_available_pieces = player.m_buildPieces.GetAvailablePiecesInSelectedCategory();
-                newY = amount_available_pieces / 10;
-                newX = amount_available_pieces % 10 - 1;
+                newY = amount_available_pieces / 15;
+                newX = amount_available_pieces % 15 - 1;
             }
-            else if (newY > (amount_available_pieces / 10) || (newY == (amount_available_pieces / 10) && newX >= (amount_available_pieces % 10)))
+            else if (newY > (amount_available_pieces / 15) || (newY == (amount_available_pieces / 15) && newX >= (amount_available_pieces % 15)))
             {
                 player.m_buildPieces.NextCategory();
                 newY = 0;
