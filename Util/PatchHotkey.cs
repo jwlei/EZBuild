@@ -39,6 +39,11 @@ namespace EZBuild
                 Pipette_Pickaxe(__instance);
             }
 
+            if (Input.GetKeyDown(EZBuild.ClearSelectedPiece_Hotkey.Value.MainKey) && __instance.InPlaceMode())
+            {
+                ClearSelectedPiece(__instance);
+            }
+
             return true;
         }
 

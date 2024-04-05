@@ -20,12 +20,12 @@
         private void Awake()
         {
             var harmony = new Harmony(MID);
-            this.LoadConfig();
+            LoadConfig();
 
             if (!EnableMod.Value)
             {
                 Logger.LogInfo(modName + " has been disabled in the mod config");
-                return;
+                OnDestroy();
             }
             harmony.PatchAll();
         }

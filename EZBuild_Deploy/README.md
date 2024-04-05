@@ -2,7 +2,7 @@ EZBuild is a stripped down continuation with the features I used the most from E
 
 # Now updated for Mistlands (finally..)
 
-If you find any bugs please report in the bug section.
+If you find any bugs please report it here: https://github.com/jwlei/EZBuild/issues
  
 
 ## Features:

@@ -53,6 +53,7 @@ namespace EZBuild
 
             // Set the newly selected piece
             currentIndex = new Vector2Int(newX, newY);
+            // Debug.Log(currentIndex);
             player.SetSelectedPiece(currentIndex);
 
             // Update the placement ghost

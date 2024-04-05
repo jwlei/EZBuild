@@ -72,6 +72,12 @@
             set;
         }
 
+        public static ConfigEntry<KeyboardShortcut> ClearSelectedPiece_Hotkey
+        {
+            get;
+            set;
+        }
+
         private void LoadConfig()
         {
             // Config menu in order
@@ -114,6 +120,10 @@
             ScrollPieceSelection_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS,
                                                 "8. Modifier for scrolling piece selection",
                                                 new KeyboardShortcut(KeyCode.LeftControl), "Hold modifier+mouse scroll to iterate over items in the hammer/hoe/cultivator menu");
+
+            ClearSelectedPiece_Hotkey = base.Config.Bind<KeyboardShortcut>(GENERAL_SETTINGS,
+                                                "10. Hotkey for clearing the piece",
+                                                new KeyboardShortcut(KeyCode.E), "With the hammer equipped, press the hotkey to clear the current piece");
         }
     }
 }

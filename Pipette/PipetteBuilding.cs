@@ -21,6 +21,11 @@ namespace EZBuild
                 return;
             }
 
+            // TODO: Check if we should rather use the native method and how to call it with "random object"
+            //player.SetSelectedPiece(currentHoverPiece);
+            //MethodInfo setupPlacementGhostRef = typeof(Player).GetMethod("SetupPlacementGhost", BindingFlags.NonPublic | BindingFlags.Instance);
+            //setupPlacementGhostRef.Invoke(player, new object[] { });
+
             PieceTable currentPieceTable = player.m_buildPieces;
             Piece.PieceCategory category = currentHoverPiece.m_category;
 

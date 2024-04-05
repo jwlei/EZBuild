@@ -37,6 +37,7 @@
     <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Actions\ClearSelectedPiece.cs" />
     <Compile Include="Actions\ScrollingPieceSelection.cs" />
     <Compile Include="Actions\ScrollingSnapPointSelection.cs" />
     <Compile Include="EZBuild.cs" />

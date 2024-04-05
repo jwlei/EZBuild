@@ -1,6 +1,6 @@
 {
     "name": "EzBuild",
-    "version_number": "2.0.1",
+    "version_number": "2.1.0",
     "website_url": "https://www.nexusmods.com/valheim/mods/1518",
     "description": "Pipette for building and resource gathering, interact while building, repair hotkey",
     "dependencies": [
